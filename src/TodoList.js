@@ -2,11 +2,18 @@ import React from 'react'
 import TodoListItem from "./TodoListItem";
 
 
-const TodoList = () => {
 
-
+const TodoList = (props) => {
     return (
-       <div><TodoListItem /> </div>
+        <div>
+            {props.tasks.map(el =>
+                <div key={el.id} >
+                    <TodoListItem   {...el} onLabelClick={props.onLabelClick} onLabelDone={props.onLabelDone} />
+
+                </div>
+            )}
+
+        </div>
     )
 }
 export default TodoList

@@ -1,13 +1,25 @@
 import React from 'react'
 
 
-const TodoListItem = () => {
-    const item = ['drink coffee', ' build awesome app']
 
+    const style = {
+        'textDecoration': 'line-through'
+    }
+const TodoListItem = (props) => {
+    const done = props.done ? style : {}
+    const style1 = {color: props.important ? 'tomato' : 'black'}
     return (
         <ul>
-            <li>{item[0]}</li>
-            <li>{item[1]}</li>
+            <li>
+                <span style={done}  onClick={() => props.onLabelClick(props.id)}>
+                    <div style={style1}>
+                {props.label}
+                    </div>
+                </span>
+                <button>delete</button>
+                <button  onClick={() => props.onLabelDone(props.id)}>important</button>
+
+            </li>
         </ul>
     )
 }
