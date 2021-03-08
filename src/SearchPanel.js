@@ -1,13 +1,11 @@
 import React from 'react'
 
+const SearchPanel = (props) => {
 
-const SearchPanel = () => {
     return (
         <div>
-            <input type="text" placeholder='search'/>
-            <button>ALL</button>
-            <button>ACTIVE</button>
-            <button>DONE</button>
+            <input type="text" placeholder='search' value={props.term} onChange={props.onSearchChange} />
+
         </div>
     )
 }
